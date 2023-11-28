@@ -1,8 +1,11 @@
 "use client";
 
-import SimpleMDE from "react-simplemde-editor";
-import "easymde/dist/easymde.min.css";
 import { Button, TextField } from "@radix-ui/themes";
+import dynamic from "next/dynamic";
+const SimpleMdeEditor = dynamic(() => import("react-simplemde-editor"), {
+  ssr: false,
+});
+import "easymde/dist/easymde.min.css";
 
 export default function NewTicketPage() {
   return (
@@ -10,7 +13,7 @@ export default function NewTicketPage() {
       <TextField.Root>
         <TextField.Input placeholder="Title" />
       </TextField.Root>
-      <SimpleMDE />
+      <SimpleMdeEditor />
       <Button>Create new ticket</Button>
     </div>
   );
