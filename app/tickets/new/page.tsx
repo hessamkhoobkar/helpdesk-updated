@@ -1,19 +1,16 @@
 "use client";
 
-import {
-  Button,
-  TextArea,
-  TextFieldInput,
-  TextFieldRoot,
-} from "@radix-ui/themes";
+import SimpleMDE from "react-simplemde-editor";
+import "easymde/dist/easymde.min.css";
+import { Button, TextField } from "@radix-ui/themes";
 
 export default function NewTicketPage() {
   return (
     <div className="space-y-3">
-      <TextFieldRoot>
-        <TextFieldInput placeholder="Title" />
-      </TextFieldRoot>
-      <TextArea placeholder="Description" />
+      <TextField.Root>
+        <TextField.Input placeholder="Title" />
+      </TextField.Root>
+      <SimpleMDE />
       <Button>Create new ticket</Button>
     </div>
   );
