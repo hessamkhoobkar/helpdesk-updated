@@ -18,7 +18,7 @@ export async function POST(request: NextRequest) {
   const validation = createTicketSchema.safeParse(body);
 
   if (!validation.success) {
-    return NextResponse.json(validation.error.errors, { status: 400 });
+    return NextResponse.json(validation.error.format(), { status: 400 });
   }
 
   const newTicket = await prisma.ticket.create({
